@@ -1,59 +1,112 @@
-# Project
+# Angular Standalone Tweet Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+This is a standalone Angular application that implements a Twitter-like functionality with features for creating, reading, updating, and deleting tweets. The application uses session storage for data persistence and is built with Angular 19.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Create new tweets with a 280-character limit
+- View list of all tweets with timestamps
+- Edit existing tweets
+- Delete tweets
+- Responsive design with Bootstrap styling
+- Session storage for data persistence
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Before you begin, ensure you have the following installed:
+- Node.js (Latest LTS version)
+- npm (Node Package Manager)
+- Git
 
-## Code scaffolding
+## Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Clone the Repository
 
 ```bash
-ng build
+git clone <repository-url>
+cd project
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Install Dependencies
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
+### Development Server
 
-For end-to-end (e2e) testing, run:
+Run the development server:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Build
+
+To build the project for production:
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+## Project Structure
+
+```
+project/
+  ├── src/
+  │   ├── app/
+  │   │   ├── tweet/
+  │   │   │   ├── tweet.component.ts
+  │   │   │   ├── tweet.component.html
+  │   │   │   └── tweet.component.css
+  │   ├── index.html
+  │   ├── main.ts
+  │   └── styles.css
+  ├── package.json
+  └── angular.json
+```
+
+## Git Commands Reference
+
+### Initial Setup
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Create a new branch
+git checkout -b feature/your-feature-name
+```
+
+### Daily Development
+```bash
+# Get latest changes
+git pull origin main
+
+# Check status of your changes
+git status
+
+# Add changes
+git add .
+
+# Commit changes
+git commit -m "Your commit message"
+
+# Push changes
+git push origin feature/your-feature-name
+```
+
+### Creating Pull Requests
+1. Push your changes to your feature branch
+2. Go to the repository on GitHub
+3. Click on "Pull Requests"
+4. Click "New Pull Request"
+5. Select your feature branch
+6. Add description and create the pull request
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For more information on using Angular CLI, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

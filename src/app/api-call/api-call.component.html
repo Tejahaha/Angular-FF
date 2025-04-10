@@ -1,0 +1,89 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Student List</h2>
+    <button class="btn btn-success" (click)="showAddForm()" *ngIf="!addingStudent && !editingStudent">+ Add Student</button>
+  </div>
+
+  <div *ngIf="addingStudent" class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Add New Student</h5>
+      <div class="mb-3">
+        <label class="form-label">Student ID</label>
+        <input type="text" class="form-control" [(ngModel)]="newStudent.studentID" name="studentID">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" [(ngModel)]="newStudent.studentName" name="studentName">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Grade</label>
+        <input type="text" class="form-control" [(ngModel)]="newStudent.studentGrade" name="studentGrade">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Academic Year</label>
+        <input type="text" class="form-control" [(ngModel)]="newStudent.academicYear" name="academicYear">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Profile Picture URL</label>
+        <input type="text" class="form-control" [(ngModel)]="newStudent.studentProfilePicture" name="studentProfilePicture">
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" (click)="addStudent()">Add Student</button>
+        <button class="btn btn-secondary" (click)="cancelAdding()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error" class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let student of students" class="col">
+      <div class="card h-100">
+        <div *ngIf="editingStudent && editingStudent.id === student.id" class="card-body">
+          <h5 class="card-title">Edit Student</h5>
+          <div class="mb-3">
+            <label class="form-label">Student ID</label>
+            <input type="text" class="form-control" [ngModel]="editingStudent.studentID" (ngModelChange)="editingStudent.studentID = $event" name="studentID">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" [ngModel]="editingStudent.studentName" (ngModelChange)="editingStudent.studentName = $event" name="studentName">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Grade</label>
+            <input type="text" class="form-control" [ngModel]="editingStudent.studentGrade" (ngModelChange)="editingStudent.studentGrade = $event" name="studentGrade">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Academic Year</label>
+            <input type="text" class="form-control" [ngModel]="editingStudent.academicYear" (ngModelChange)="editingStudent.academicYear = $event" name="academicYear">
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary" (click)="saveChanges()">Save</button>
+            <button class="btn btn-secondary" (click)="cancelEditing()">Cancel</button>
+          </div>
+        </div>
+        <div *ngIf="editingStudent?.id !== student.id" class="card-body">
+          <img [src]="student.studentProfilePicture" class="card-img-top mb-3" alt="Student Profile Picture">
+          <h5 class="card-title">{{ student.studentName }}</h5>
+          <p class="card-text">
+            <strong>Student ID:</strong> {{ student.studentID }}<br>
+            <strong>Grade:</strong> {{ student.studentGrade }}<br>
+            <strong>Academic Year:</strong> {{ student.academicYear }}
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <button class="btn btn-primary btn-sm" (click)="editStudent(student)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteStudent(student.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
