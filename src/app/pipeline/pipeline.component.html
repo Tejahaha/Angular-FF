@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2>Angular Pipes Examples</h2>
+
+  <div class="card mb-3">
+    <div class="card-header">Input Text</div>
+    <div class="card-body">
+      <textarea class="form-control" rows="3" placeholder="Enter text to transform..." (input)="onTextChange($event)"></textarea>
+    </div>
+  </div>
+  
+  <div class="card mb-3">
+    <div class="card-header">Text Transformations</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Original Text</h5>
+          <p>{{ text || 'No text entered' }}</p>
+
+          <h5>Uppercase</h5>
+          <p>{{ text | uppercase }}</p>
+
+          <h5>Lowercase</h5>
+          <p>{{ text | lowercase }}</p>
+        </div>
+        <div class="col-md-6">
+          <h5>Titlecase</h5>
+          <p>{{ text | titlecase }}</p>
+
+          <h5>Reversed</h5>
+          <p>{{ text | reverse }}</p>
+
+          <h5>Character Count</h5>
+          <p>{{ text.length }} characters</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

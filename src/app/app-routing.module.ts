@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { ApiCallComponent } from './api-call/api-call.component';
 import { TweetComponent } from './tweet/tweet.component';
+import { PipelineComponent } from './pipeline/pipeline.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'profile', component: MyprofileComponent },
   { path: 'students', component: ApiCallComponent },
   { path: 'tweets', component: TweetComponent },
+  { path: 'pipes', component: PipelineComponent },
   { path: '**', redirectTo: '' }
 ];
 

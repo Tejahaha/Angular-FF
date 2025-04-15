@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { ApiCallComponent } from './api-call/api-call.component';
 import { TweetComponent } from './tweet/tweet.component';
+import { PipelineComponent } from './pipeline/pipeline.component';
 
 @NgModule({
   declarations: [
